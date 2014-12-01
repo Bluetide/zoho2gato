@@ -12,8 +12,8 @@ r = requests.get(url,params=auth)
 invoices = r.json()
 
 #Export JSON with ascii set to FALSE for accents
-#with open('data.json', 'w') as outfile:
-#  json.dump(invoices, outfile, ensure_ascii=False)
+with open('data.json', 'w') as outfile:  
+  json.dump(invoices, outfile, ensure_ascii=False)
 
 
 #GET THE LIST OF ALL INVOICE IDS
@@ -34,51 +34,18 @@ invoices = r.json()
 #             "invoice_id": "100021000000058075", ------->para validar con gato malo si ha sido impreso.
 #             "invoice_number": "PROF-000070", ----------> hay que crear el numero de referencia interna
 # Falta solicitar la informacion del cliente para enviar TELEFONO, DIRECCION Y RUC desde Zoho a gatomalo
-
 # "name": "IT Consulting" ------>  "nombre": en gatomalo
 #   "quantity": 1,        ------>  "cantidad": en gatomalo
 #  "tax_percentage": 7,   -------> if = 7; entonces "tasa":2 (en la fiscal, el 2, es 7%; el 0 es0%)
 #                 "rate": 550, ---> "precio": en gatomalo ////en gatomalo deberia llamarse precio_unidad
 #
-
-
-          "tax_name": "ITBMS",
-                "description": "Semana 13 - PM - 8 Horas incluidas",
-                "salesorder_item_id": "100021000000047009",
-                "item_order": 0,
-                "line_item_id": "100021000000058087",
-                "discount_amount": 0,
-                "project_id": "",
-                "tax_percentage": 7,
-                "expense_id": "",
-                "time_entry_ids": "",
-                "quantity": 1,
-                "bcy_rate": 550,
-                "rate": 550,
-                "tax_id": "100021000000034001",
-                "discount": 0,
-                "item_id": "100021000000039809",
-                "stock_on_hand": "",
-                "unit": "",
-                "item_total": 550,
-                "expense_receipt_name": "",
-                "tax_type": "tax",
-                "name": "IT Consulting"
-            },
-            {
-
-
-#				
-
-
-
-
-{"factura": {
-	"cliente":
-		{"empresa":" CASA DE EMPEÑOS MAS ME DAN, S.A.","direccion":"Panama","telefono":"265-4444","ruc":"51001-32-319819 DV 01"},
-	"productos": [
-		{"nombre":"Data Analysis","cantidad":1,"tasa":2,"precio":1500.00}
-	]}}
+# 
+# {"factura": {
+# 	"cliente":
+# 		{"empresa":" CASA DE EMPEÑOS MAS ME DAN, S.A.","direccion":"Panama","telefono":"265-4444","ruc":"51001-32-319819 DV 01"},
+# 	"productos": [
+# 		{"nombre":"Data Analysis","cantidad":1,"tasa":2,"precio":1500.00}
+# 	]}}
 
 
 #POST JSON TO GATOMALO THE JSON TO PRINT

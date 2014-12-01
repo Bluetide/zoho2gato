@@ -18,17 +18,57 @@ invoices = r.json()
 
 #GET THE LIST OF ALL INVOICE IDS
 
+
+
+
 #VALIDATE WHICH ONES NEED PRINTING; USE THE GATOMALO's db to check. USE the invoice  id
+#y una fecha de inicio para no mezclar facturas previas.
 
 
 
 #CREATE JSON FOR EACH INVOICE ID USING THE GATO MALO FORMAT
 
-
+#  			  	JSON del invoice de Zoho      -------> accion o homologacion con gatomalo
 #             "customer_id": "100021000000039399", ------>para guardar en gatomalo por siacaso se modifica el nombre del cliente
-#             "customer_name": "MMD Hotel, S.A.", -------> "empresa"
+#             "customer_name": "MMD Hotel, S.A.", -------> debe ser igual a "empresa":
 #             "invoice_id": "100021000000058075", ------->para validar con gato malo si ha sido impreso.
 #             "invoice_number": "PROF-000070", ----------> hay que crear el numero de referencia interna
+# Falta solicitar la informacion del cliente para enviar TELEFONO, DIRECCION Y RUC desde Zoho a gatomalo
+
+# "name": "IT Consulting" ------>  "nombre": en gatomalo
+#   "quantity": 1,        ------>  "cantidad": en gatomalo
+#  "tax_percentage": 7,   -------> if = 7; entonces "tasa":2 (en la fiscal, el 2, es 7%; el 0 es0%)
+#                 "rate": 550, ---> "precio": en gatomalo ////en gatomalo deberia llamarse precio_unidad
+#
+
+
+          "tax_name": "ITBMS",
+                "description": "Semana 13 - PM - 8 Horas incluidas",
+                "salesorder_item_id": "100021000000047009",
+                "item_order": 0,
+                "line_item_id": "100021000000058087",
+                "discount_amount": 0,
+                "project_id": "",
+                "tax_percentage": 7,
+                "expense_id": "",
+                "time_entry_ids": "",
+                "quantity": 1,
+                "bcy_rate": 550,
+                "rate": 550,
+                "tax_id": "100021000000034001",
+                "discount": 0,
+                "item_id": "100021000000039809",
+                "stock_on_hand": "",
+                "unit": "",
+                "item_total": 550,
+                "expense_receipt_name": "",
+                "tax_type": "tax",
+                "name": "IT Consulting"
+            },
+            {
+
+
+#				
 
 
 

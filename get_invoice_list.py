@@ -36,7 +36,7 @@ with open('data.json', 'w') as outfile:
 # Falta solicitar la informacion del cliente para enviar TELEFONO, DIRECCION Y RUC desde Zoho a gatomalo
 # "name": "IT Consulting" ------>  "nombre": en gatomalo
 #   "quantity": 1,        ------>  "cantidad": en gatomalo
-#  "tax_percentage": 7,   -------> if = 7; entonces "tasa":2 (en la fiscal, el 2, es 7%; el 0 es0%)
+#  "tax_percentage": 7,   -------> if = 7; entonces "tasa":1 (en la fiscal, el , es 7%; el 0 es0%)
 #                 "rate": 550, ---> "precio": en gatomalo ////en gatomalo deberia llamarse precio_unidad
 #
 # 

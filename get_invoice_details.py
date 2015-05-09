@@ -14,28 +14,3 @@ invoices = r.json()
 #Export JSON with ascii set to FALSE for accents
 with open('data.json', 'w') as outfile:
   json.dump(invoices, outfile, ensure_ascii=False)
-  
-  
-  
-#             "is_viewed_by_client": false,
-#             "client_viewed_time": "",
-#             "currency_code": "PAB",
-#             "due_date": "2014-12-01",
-#             "status": "paid",
-#             "customer_id": "100021000000039399",
-#             "created_time": "2014-11-20T13:14:05-0500",
-#             "currency_id": "100021000000032008",
-#             "due_days": "",
-#             "reference_number": "OS-00002",
-#             "last_payment_date": "2014-11-25",
-#             "balance": 0,
-#             "last_modified_time": "2014-11-28T19:05:57-0500",
-#             "date": "2014-11-20",
-#             "payment_expected_date": "",
-#             "customer_name": "MMD Hotel, S.A.",
-#             "invoice_id": "100021000000058075",
-#             "exchange_rate": 1,
-#             "is_emailed": false,
-#             "total": 5248.89,
-#             "invoice_number": "PROF-000070",
-#             "reminders_sent": 0

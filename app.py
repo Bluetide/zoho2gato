@@ -14,8 +14,8 @@ def get_invoice_list():
     #Get JSON
     auth = {'authtoken':authtoken,'organization_id':organization_id}
     r = requests.get(url,params=auth)
-    invoices = r.json()
-    return invoices
+    data = r.json()
+    return data
 
 def get_invoice_detail():
     # Input Variables
@@ -33,12 +33,21 @@ def get_invoice_detail():
 @app.route('/')
 def index():
     invoice_list = get_invoice_list()
-    invoice_json = str(invoice_list)
+    invoice_json = json.dumps(invoice_list)
     return render_template('index.html', invoice_json=invoice_json)
 
-@app.route('/createjson')
+
 #falta agregar el argumento para buscar el id del invoice unico y asi encontrar el url correcto.
-def create_json():
+# def parse_invoice_list():
+#     data = get_invoice_list()
+#
+#     proforma_number = data["invoices"][1]["invoice_number"]
+#     fiscal_string = {'invoice_number':proforma_number}
+#     return fiscal_string
+
+@app.route('/create_invoice_json')
+#falta agregar el argumento para buscar el id del invoice unico y asi encontrar el url correcto.
+def create_invoice_json():
     data=get_invoice_detail()
     proforma_number = data["invoice"]["invoice_number"]
     customer_name = data["invoice"]["customer_name"]
@@ -48,6 +57,7 @@ def create_json():
     products = data["invoice"]["line_items"]
     fiscal_string = '{"factura":{"cliente":{"empresa":'+"\""+customer_name+"\""+',"direccion":"","telefono":"","ruc":"0"}}}'
     fiscal_json = json.dumps(json.loads(fiscal_string))
+
     return Response(fiscal_json,
             mimetype='application/json',
             headers={'Content-Disposition':'attachment;filename='+proforma_number+'.json'})

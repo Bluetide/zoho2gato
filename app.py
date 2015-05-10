@@ -46,6 +46,9 @@ def index():
 #     fiscal_string = {'invoice_number':proforma_number}
 #     return fiscal_string
 
+def translate_product(product):
+   return {"description":product['description'],"total":product['item_total']}
+
 @app.route('/create_invoice_json')
 #falta agregar el argumento para buscar el id del invoice unico y asi encontrar el url correcto.
 def create_invoice_json():
@@ -60,10 +63,10 @@ def create_invoice_json():
     #    print (value)
     #    print ("")
 
-    products = data["invoice"]["line_items"].copy()
+    products = data["invoice"]["line_items"]
+    productos = [translate_product(p) for p in  products]
 
-    fisc = {"factura":{"cliente":{"empresa":"" + customer_name + "","direccion":"" + address + "","telefono":"","ruc":"0"}}}
-    print (fisc)
+    fisc = {"factura":{"cliente":{"empresa":"" + customer_name + "","direccion":"" + address + "","telefono":"","ruc":"0"}, "productos":productos}}
     fiscal_json = json.dumps(fisc)
 
     #fiscal_string = '{"factura":{"cliente":{"empresa":'+"\""+customer_name+"\""+',"direccion":"","telefono":"","ruc":"0"}}}'

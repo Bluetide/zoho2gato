@@ -51,7 +51,7 @@ def translate_product(product):
     elif product["tax_percentage"] == 0:
         tasa = 0
     elif product["tax_percentage"] == 10:
-        tasa = 10
+        tasa = 2
     else:
         tasa = 'error'
     return {"nombre":product['name'],"cantidad":1, "tasa":tasa,"precio":product['item_total']}

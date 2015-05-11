@@ -37,32 +37,22 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
-    <div>
-       {% if params %}
-       These are the GET parameters and values for the current request:
-       <ul>
-         {%for key,value in params %}
-           <li><strong>{{key}}:</strong> {{value}}</li>
-         {%endfor%}
-       </ul>
-       {%endif%}
-       To test this, click on the next 2 links to check the GET params:
-       <ul>
-         <li><a href="/?param1=foo&param2=bar">/?param1=foo&amp;param2=bar</li>
-         <li><a href="/?param1=abc&param2=xyz">/?param1=abc&amp;param2=xyz</li>
-       </ul>
-     </div>
+
 
     <div class="container">
-      <h1>GET Json</h1>
-      <form action="{{ url_for('create_invoice_json') }}">
+      <h1>Json</h1>
+
+      <form action="{{ url_for('create_invoice_json') }}" method="post">
         <div class="form-group">
           <label>Número de Proforma</label>
-          <input type="text" class="form-control" placeholder="número">
+          <input class="form-control" type="text" name="invoice_id" placeholder="número" />
         </div>
-        <input class="btn btn-default" type="submit" href="/?param1=abc&param2=xyz" value="Download Json">
+        <input class="btn btn-default" type="submit" value="Download Json" />
       </form>
     </div>
+
+
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

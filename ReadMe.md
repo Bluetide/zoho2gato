@@ -7,6 +7,8 @@ This application is written in python3 and requires:
 - Uses flask as the web server
 - Requests (pip3 install requests)
 
+#notas
+- se utiliza el precio total de cada item para generar el json de gatomalo porque no hay forma de aplicar el descuento correctamente en gatomalo. Por eso se usa en cantidad siempre "1". 
 
 If you are on Mac OS X or Linux, chances are that one of the following two commands will work for you:
 

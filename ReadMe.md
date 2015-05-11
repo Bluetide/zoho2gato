@@ -2,7 +2,7 @@
 This applications retrieves invoices from Zoho and create independent JSON's for each invoice in the required input format for GatoMalo.
 
 #Dependencies
-This application is written in python3 and requires:
+This application is written in python3 3.4.1 and requires:
 
 - Uses flask as the web server
 - Requests (pip3 install requests)

@@ -4,8 +4,10 @@ This applications retrieves invoices from Zoho and create independent JSON's for
 #Dependencies
 This application is written in python3 3.4.1 and requires:
 
-- Uses flask as the web server
-- Requests (pip3 install requests)
+- Uses flask as the web server -
+'sudo pip3 install flask'
+- Requests
+'sudo pip3 install requests'
 
 # missing
 - verificar las tasa de impuestos en translate_product(product)

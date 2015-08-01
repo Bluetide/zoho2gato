@@ -84,6 +84,32 @@ def create_invoice_json():
             mimetype='application/json',
             headers={'Content-Disposition':'attachment;filename='+proforma_number+'.json'})
 
+@app.route('/print_gatomalo', methods=['POST'])
+def print_gatomalo():
+    invoice_id = request.form['invoice_id']
+    data=get_invoice_detail(invoice_id)
+    proforma_number = data["invoice"]["invoice_number"]
+    customer_name = data["invoice"]["customer_name"]
+    address = data["invoice"]["billing_address"]["address"]
+    phone_number = data["invoice"]["customer_name"]
+    #ruc = data["invoice"]["customer_name"]
+    #print (type(data))
+    #for key, value in data.items():
+    #    print (value)
+    #    print ("")
+
+    products = data["invoice"]["line_items"]
+    productos = [translate_product(p) for p in  products]
+
+    fisc = {"factura":{"cliente":{"empresa":"" + customer_name + "","direccion":"" + address + "","telefono":"","ruc":"0"}, "productos":productos}}
+    fiscal_json = json.dumps(fisc, ensure_ascii=False).encode('utf8')
+
+    resp = Response(fiscal_json, status=200, mimetype='application/json')
+    resp.headers['Link'] = 'http://localhost:5000/facturas'
+
+    #fiscal_string = '{"factura":{"cliente":{"empresa":'+"\""+customer_name+"\""+',"direccion":"","telefono":"","ruc":"0"}}}'
+    #fiscal_json = json.dumps(json.loads(fiscal_string))
+    return resp
 
 
 if __name__ == '__main__':

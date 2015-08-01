@@ -51,6 +51,18 @@
       </form>
     </div>
 
+    <div class="container">
+      <h1>GatoMalo</h1>
+
+      <form action="{{ url_for('print_gatomalo') }}" method="post">
+        <div class="form-group">
+          <label>Número de Proforma</label>
+          <input class="form-control" type="text" name="invoice_id" placeholder="número" />
+        </div>
+        <input class="btn btn-default" type="submit" value="Print in Gatomalo Directly" />
+      </form>
+    </div>
+
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
